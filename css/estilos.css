@@ -1,0 +1,571 @@
+/* 
+   ===============================================
+   1. VARIABLES CSS Y CONFIGURACIÓN GENERAL
+   ===============================================
+*/
+:root {
+    --color-principal: #FEFDFD;      /* Blanco principal */
+    --color-secundario: #F21905;     /* Rojo vibrante */
+    --color-complementario: #8C0E03; /* Rojo oscuro / Borgoña */
+    --color-fondo: #0D0D0D;          /* Fondo oscuro */
+    --color-tarjeta: #1A1A1A;        /* Fondo secundario para cajas */
+    --color-texto: #FEFDFD;          /* Color del texto general */
+}
+
+/* Restablecimiento básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-border-box;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Plus Jakarta Sans', 'Comic Sans MS', sans-serif; /* Tipografía para textos */
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Tipografía específica para títulos */
+h1, h2, h3, h4, th {
+    font-family: Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 
+   ===============================================
+   2. HEADER / ENCABEZADO Y NAVEGACIÓN (FLEXBOX)
+   ===============================================
+*/
+.encabezado {
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-bottom: 3px solid var(--color-secundario);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nombre-negocio {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-secundario);
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu a {
+    color: var(--color-principal);
+    text-decoration: none;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--color-secundario);
+}
+
+/* 
+   ===============================================
+   3. HERO SECTION (FLEXBOX DOS COLUMNAS)
+   ===============================================
+*/
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 40px;
+    gap: 30px;
+    background: linear-gradient(180deg, #000000 0%, var(--color-fondo) 100%);
+    min-height: 70vh;
+}
+
+.hero-columna-izquierda {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-titulo {
+    font-size: 2.8rem;
+    color: var(--color-secundario);
+    margin-bottom: 10px;
+}
+
+.hero-eslogan {
+    font-size: 2rem;
+    color: var(--color-principal);
+    margin-bottom: 20px;
+}
+
+.hero-descripcion {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.boton-cta {
+    display: inline-block;
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+    padding: 12px 28px;
+    text-decoration: none;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.boton-cta:hover {
+    background-color: var(--color-complementario);
+}
+
+.hero-columna-derecha {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-imagen {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    border: 3px solid var(--color-secundario);
+    box-shadow: 0px 4px 15px rgba(242, 25, 5, 0.3);
+}
+
+/* 
+   ===============================================
+   4. SECCIÓN NOSOTROS (FLEXBOX)
+   ===============================================
+*/
+.nosotros {
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
+    gap: 40px;
+    background-color: var(--color-tarjeta);
+}
+
+.nosotros-imagen-contenedor {
+    flex: 1;
+}
+
+.nosotros-imagen {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--color-complementario);
+}
+
+.nosotros-texto {
+    flex: 1;
+}
+
+.nosotros-texto h2 {
+    color: var(--color-secundario);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.nosotros-texto p {
+    margin-bottom: 15px;
+    font-size: 1.15rem;
+}
+
+/* 
+   ===============================================
+   5. PRODUCTOS (TARJETAS EN FLEXBOX)
+   ===============================================
+*/
+.productos {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.productos h2 {
+    color: var(--color-secundario);
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.productos-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tarjeta-producto {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-complementario);
+    border-radius: 8px;
+    width: calc(33.333% - 20px);
+    min-width: 260px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-secundario);
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.tarjeta-producto h3 {
+    color: var(--color-principal);
+    margin-bottom: 10px;
+}
+
+.tarjeta-producto p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-secundario);
+    margin-bottom: 15px;
+}
+
+.boton-tarjeta {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.boton-tarjeta:hover {
+    background-color: var(--color-complementario);
+}
+
+/* 
+   ===============================================
+   6. BENEFICIOS O SERVICIOS (FLEXBOX)
+   ===============================================
+*/
+.servicios {
+    background-color: var(--color-tarjeta);
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.servicios h2 {
+    color: var(--color-secundario);
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.servicios-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tarjeta-servicio {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--color-fondo);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--color-complementario);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icono-servicio {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    filter: invert(20%) sepia(85%) saturate(5000%) hue-rotate(355deg) brightness(95%) contrast(100%);
+}
+
+.tarjeta-servicio h3 {
+    color: var(--color-principal);
+    margin-bottom: 10px;
+}
+
+.tarjeta-servicio p {
+    margin-bottom: 20px;
+}
+
+/* 
+   ===============================================
+   7. TABLA DE PRECIOS Y PRODUCTOS
+   ===============================================
+*/
+.seccion-tabla {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.seccion-tabla h2 {
+    color: var(--color-secundario);
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-complementario);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+th {
+    background-color: var(--color-complementario);
+    color: var(--color-principal);
+}
+
+tr:hover {
+    background-color: #262626;
+}
+
+/* 
+   ===============================================
+   8. GALERÍA DE IMÁGENES (FLEXBOX)
+   ===============================================
+*/
+.galeria {
+    background-color: var(--color-tarjeta);
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.galeria h2 {
+    color: var(--color-secundario);
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.galeria-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.galeria-imagen {
+    width: calc(33.333% - 20px);
+    min-width: 250px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--color-complementario);
+    transition: transform 0.3s;
+}
+
+.galeria-imagen:hover {
+    transform: scale(1.03);
+    border-color: var(--color-secundario);
+}
+
+/* 
+   ===============================================
+   9. FORMULARIO DE CONTACTO
+   ===============================================
+*/
+.contacto {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.contacto h2 {
+    color: var(--color-secundario);
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.formulario-contacto {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-tarjeta);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--color-complementario);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo-formulario label {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-principal);
+}
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #000;
+    color: var(--color-principal);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+}
+
+.boton-enviar {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.boton-enviar:hover {
+    background-color: var(--color-complementario);
+}
+
+/* 
+   ===============================================
+   10. FOOTER / PIE DE PÁGINA (FLEXBOX)
+   ===============================================
+*/
+.pie-pagina {
+    background-color: #000000;
+    border-top: 3px solid var(--color-secundario);
+    padding: 40px 40px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-info h3 {
+    color: var(--color-secundario);
+    margin-bottom: 10px;
+}
+
+.footer-info p {
+    font-size: 1.1rem;
+}
+
+.footer-derechos {
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* 
+   ===============================================
+   11. DISEÑO RESPONSIVE BASIC (MAX-WIDTH: 768PX)
+   ===============================================
+*/
+@media (max-width: 768px) {
+    /* Header vertical */
+    .encabezado {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Hero de una columna */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Sección Nosotros a una columna */
+    .nosotros {
+        flex-direction: column;
+    }
+
+    /* Tarjetas de producto a ancho completo */
+    .tarjeta-producto {
+        width: 100%;
+    }
+
+    /* Galería a una columna */
+    .galeria-imagen {
+        width: 100%;
+    }
+}
